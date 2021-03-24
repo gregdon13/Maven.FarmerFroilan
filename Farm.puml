@@ -1,8 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-
-abstract class Animal<EdiblePlant> {
+abstract class Animal<E extends EdiblePlant> {
 eat (EdiblePlant obj)
 makeNoise;
 }
@@ -40,7 +39,7 @@ makeNoise;
 }
 interface Rideable {}
 interface Produce {
-yield(EdiblePlant obj) if hasBeenFertilized;
+yield(Edible obj) if hasBeenFertilized;
 }
 interface Vehicle {
 makeNoise;
@@ -73,11 +72,11 @@ store (LivingThing livingThing)
 class Farm {
 Collections for houses
 }
-class Horse<HorseFood> {
+class Horse {
 makeNoise
 eat (HorseFood obj)
 }
-class Chicken<ChickenFood> {
+class Chicken {
 eat (ChickenFood obj)
 makeNoise;
 yield(EdibleEgg egg) if hasBeenFertilized == false
@@ -91,38 +90,38 @@ store(CropRow);
 class CropRow<Crop> {
 store(Crop);
 }
-class Crop {
+class Crop <E extends EdiblePlant>{
 yield (EdiblePlant obj) if hasBeenFertilized && hasBeenHarvested;
 }
-class CornStalk {
+class CornStalk<EarCorn> {
 yield(EarCorn);
 }
 class EarCorn {
 hasBeenFertilized;
 hasBeenHarvested;
 }
-class TomatoPlant {
+class TomatoPlant<Tomato> {
 yield(Tomato);
 }
 class Tomato {
 hasBeenFertilized;
 hasBeenHarvested;
 }
-class BeanStalk {
+class BeanStalk <SoyBean> {
 yield(Soybean soybean)
 }
 class SoyBean {
 hasBeenFertilized;
 hasBeenHarvested;
 }
-class PumpkinVines {
+class PumpkinVines<Pumpkin> {
 yield(Pumpkin pumpkin)
 }
 class Pumpkin {
 hasBeenFertilized;
 hasBeenHarvested;
 }
-class AppleTrees {
+class AppleTrees<Apple> {
 yield (Apple apple)
 }
 class Apple {
