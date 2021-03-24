@@ -48,7 +48,7 @@ makeNoise;
 }
 
 class Horse {
-makeNoise;
+makeNoise
 }
 class Chicken {
 makeNoise;
