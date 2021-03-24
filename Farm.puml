@@ -29,7 +29,7 @@ makeNoise;
 }
 interface Rideable {}
 interface Produce {
-yield(Edible obj) if hasBeenFertilized;
+yield(EdiblePlant obj) if hasBeenFertilized;
 }
 interface Vehicle {
 makeNoise;
@@ -59,10 +59,10 @@ feed (Horse horse, int numOfCorn)
 
 class Horse {
 makeNoise
-eat (Edible obj)
+eat (EdiblePlant obj)
 }
 class Chicken {
-eat (Edible obj)
+eat (EdiblePlant obj)
 makeNoise;
 yield(EdibleEgg egg) if hasBeenFertilized == false
 }
@@ -76,7 +76,11 @@ class CropRow<Crop> {
 store(Crop);
 }
 class Crop {
-yield (Edible obj) if hasBeenFertilized && hasBeenHarvested;
+yield (EdiblePlant obj) if hasBeenFertilized && hasBeenHarvested;
+}
+class EdiblePlant {
+hasBeenFertilized;
+hasBeenHarvested;
 }
 class CornStalk {
 yield(EarCorn);
@@ -152,6 +156,7 @@ distill (Corn corn)
 class ProduceStand {
 addProduce (Produce)
 }
+
 
 class Monday {
 mount (Horse horse)
@@ -235,12 +240,14 @@ Crop <|--- BeanStalk
 Crop <|--- PumpkinVines
 Crop <|--- AppleTrees
 
-Edible <|-- EarCorn
-Edible <|-- Tomato
+Edible <|- EdiblePlant
 Edible <|--- EdibleEgg
-Edible <|--- SoyBean
-Edible <|--- Pumpkin
-Edible <|--- Apple
+
+EdiblePlant <|-- EarCorn
+EdiblePlant <|-- Tomato
+EdiblePlant <|--- SoyBean
+EdiblePlant <|--- Pumpkin
+EdiblePlant <|--- Apple
 
 NoiseMaker <|---- Person
 Eater <|---- Person
