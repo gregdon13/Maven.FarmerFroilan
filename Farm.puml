@@ -5,6 +5,7 @@ abstract class Edible{
 hasBeenFertilized;
 }
 abstract class Animal {
+eat (Edible obj)
 makeNoise;
 }
 abstract class FarmVehicle {
@@ -17,6 +18,8 @@ makeNoise;
 }
 abstract class Farm {
 }
+
+
 
 interface Eater {
 eat(Edible obj);
@@ -46,11 +49,20 @@ plant (Crop crop, CropRow row);
 eat(Edible obj);
 makeNoise;
 }
+interface DailyRoutine {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+}
+
+
 
 class Horse {
 makeNoise
+eat (Edible obj)
 }
 class Chicken {
+eat (Edible obj)
 makeNoise;
 yield(EdibleEgg egg) if hasBeenFertilized == false
 }
@@ -80,6 +92,27 @@ class Tomato {
 hasBeenFertilized;
 hasBeenHarvested;
 }
+class BeanStalk {
+yield(Soybean soybean)
+}
+class SoyBean {
+hasBeenFertilized;
+hasBeenHarvested;
+}
+class PumpkinVines {
+yield(Pumpkin pumpkin)
+}
+class Pumpkin {
+hasBeenFertilized;
+hasBeenHarvested;
+}
+class AppleTrees {
+yield (Apple apple)
+}
+class Apple {
+hasBeenFertilized;
+hasBeenHarvested;
+}
 class Tractor {
 harvest(Crop crop);
 operate;
@@ -97,6 +130,13 @@ eat(Edible obj);
 makeNoise;
 plant (Crop crop, CropRow row);
 }
+class Pilot {
+mount(Rideable obj)
+dismount(Rideable obj)
+eat(Edible obj);
+makeNoise;
+Fly (CropDuster duster);
+}
 class Stable<Horse> {
 store (Horse horse);
 }
@@ -105,6 +145,64 @@ store (Person person)
 }
 class ChickenCoop<Chicken> {
 store (Chicken)
+}
+class Moonshine {
+distill (Corn corn)
+}
+class ProduceStand {
+addProduce (Produce)
+}
+
+class Monday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+fly (CropDuster duster)
+}
+class Tuesday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+mount(Tractor tractor)
+harvest (Crop crop)
+dismount(Tractor tractor)
+}
+class Wednesday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+distill (Moonshine moonshine)
+}
+class Thursday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+}
+class Friday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+drink (Moonshine moonshine)
+work (ProduceStand produceStand)
+}
+class Saturday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+feed (Chicken chicken)
+}
+class Sunday {
+mount (Horse horse)
+dismount (Horse horse)
+feed (Horse horse, int numOfCorn)
+eat(Edible obj)
+plant (Crop crop, CropRow row) 3-5
 }
 
 
@@ -133,10 +231,16 @@ Produce <|--- Crop
 
 Crop <|--- CornStalk
 Crop <|--- TomatoPlant
+Crop <|--- BeanStalk
+Crop <|--- PumpkinVines
+Crop <|--- AppleTrees
 
 Edible <|-- EarCorn
 Edible <|-- Tomato
 Edible <|--- EdibleEgg
+Edible <|--- SoyBean
+Edible <|--- Pumpkin
+Edible <|--- Apple
 
 NoiseMaker <|---- Person
 Eater <|---- Person
@@ -150,5 +254,15 @@ Rider <|---- Farmer
 Farm <|-- FarmHouse
 Farm <|-- ChickenCoop
 Farm <|-- Stable
+
+Rider <|--- Pilot
+
+DailyRoutine <|--- Monday
+DailyRoutine <|--- Tuesday
+DailyRoutine <|--- Wednesday
+DailyRoutine <|--- Thursday
+DailyRoutine <|--- Friday
+DailyRoutine <|--- Saturday
+DailyRoutine <|--- Sunday
 
 @enduml
