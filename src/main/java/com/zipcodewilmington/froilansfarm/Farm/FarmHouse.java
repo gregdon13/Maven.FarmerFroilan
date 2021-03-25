@@ -1,9 +1,8 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
 import com.zipcodewilmington.froilansfarm.LivingThing;
+import com.zipcodewilmington.froilansfarm.Persons.Person;
 
-public class FarmHouse implements Housing{
-    public void store(LivingThing creature) {
+public class FarmHouse extends Housing<Person> {
 
-    }
 }
