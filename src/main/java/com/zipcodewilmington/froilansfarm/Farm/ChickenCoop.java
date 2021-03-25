@@ -15,6 +15,11 @@ public class ChickenCoop extends Housing<Chicken>{
         }
     }
 
+    public void killChicken(Chicken dinner) {
+        coop.remove(dinner);
+    }
+
+    @Override
     public void store(Chicken chicken) {
         coop.add(chicken);
     }
