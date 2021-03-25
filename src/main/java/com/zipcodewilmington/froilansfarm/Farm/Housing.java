@@ -10,4 +10,8 @@ public abstract class Housing<E extends LivingThing> {
     public void store(E creature) {
         livingStorage.add(creature);
     }
+
+    public int size() {
+        return livingStorage.size();
+    }
 }
