@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 public class CropRow {
-    ArrayList<Crop<EdiblePlant>> row = new ArrayList<Crop<EdiblePlant>>();
+    public ArrayList<Crop<EdiblePlant>> row = new ArrayList<Crop<EdiblePlant>>();
 
     public CropRow() {}
 
@@ -21,6 +21,21 @@ public class CropRow {
     public void plantCrops(Crop<EdiblePlant> crop) {
         row.add(crop);
     }
+
+    public int harvestCrop(Crop<EdiblePlant> crop) {
+        //Will return crop.Yield() which will be a random range
+        return 0;
+    }
+
+//    public int harvestRow() {
+//        int numOfVegYielded = 0;
+//        for (Crop<EdiblePlant> crop : this.row) {
+//            //Calls yield of the plant which returns a random number
+//            //Add that to total of VegYielded for testing
+//            row.remove(crop);
+//        }
+//        return numOfVegYielded;
+//    }
 
     public int cropsPerRow() {
         return row.size();
