@@ -175,9 +175,9 @@ public class FarmerTest {
     @Test
     public void mountTest2() {
         // Arrange
-        String expected = "";//this.name + " gets on the " + obj + ".";
         Farmer testFarmer = new Farmer("Geralt");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets on the " + testHorse + ".";
         // Act
         String returned = testFarmer.mount(testHorse);
         // Assert
