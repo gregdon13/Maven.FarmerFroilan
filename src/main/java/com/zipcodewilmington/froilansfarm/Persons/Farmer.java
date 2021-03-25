@@ -6,6 +6,23 @@ import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 public class Farmer implements Rider, Botanist, Person {
+
+    public String name;
+
+    public Farmer() {}
+
+    public Farmer(String name) {
+        this.name = name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public String eat(Edible obj) {
         System.out.println("This food is downright edible!");
         return "This food is downright edible!";
@@ -17,11 +34,13 @@ public class Farmer implements Rider, Botanist, Person {
     }
 
     public String mount(Rideable obj) {
-        return null;
+        System.out.println(this.name + " gets on the " + obj + ".");
+        return this.name + " gets on the " + obj + ".";
     }
 
     public String dismount(Rideable obj) {
-        return null;
+        System.out.println(this.name + " gets off the " + obj + ".");
+        return this.name + " gets on the " + obj + ".";
     }
 
     public void plant(Crop crop, CropRow cropRow) {
