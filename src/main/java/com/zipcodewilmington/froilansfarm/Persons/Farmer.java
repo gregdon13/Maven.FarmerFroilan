@@ -40,7 +40,7 @@ public class Farmer implements Rider, Botanist, Person {
 
     public String dismount(Rideable obj) {
         System.out.println(this.name + " gets off the " + obj + ".");
-        return this.name + " gets on the " + obj + ".";
+        return this.name + " gets off the " + obj + ".";
     }
 
     public void plant(Crop crop, CropRow cropRow) {

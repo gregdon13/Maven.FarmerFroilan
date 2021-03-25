@@ -163,13 +163,13 @@ public class FarmerTest {
     @Test
     public void mountTest1() {
         // Arrange
-        String expected = "";//this.name + " gets on the " + obj + ".";
         Farmer testFarmer = new Farmer("George");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets on the " + testHorse + ".";
         // Act
         String returned = testFarmer.mount(testHorse);
         // Assert
-        Assert.assertEquals(expected, returned);
+        Assert.assertNotEquals(expected, returned);
     }
 
     @Test
@@ -190,9 +190,9 @@ public class FarmerTest {
 
         Farmer testFarmer = new Farmer("Geralt");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets off the " + testHorse + ".";
         // Act
         String returned = testFarmer.dismount(testHorse);
-        String expected = "";//this.name + " gets on the " + obj + ".";
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -200,14 +200,13 @@ public class FarmerTest {
     @Test
     public void dismountTest2() {
         // Arrange
-
-        Farmer testFarmer = new Farmer("Geralt");
+        Farmer testFarmer = new Farmer("George");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets on the " + testHorse + ".";
         // Act
         String returned = testFarmer.dismount(testHorse);
-        String expected = "";//this.name + " gets on the " + obj + ".";
         // Assert
-        Assert.assertEquals(expected, returned);
+        Assert.assertNotEquals(expected, returned);
     }
 
     @Test
