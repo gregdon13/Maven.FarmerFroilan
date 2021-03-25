@@ -3,19 +3,18 @@ package com.zipcodewilmington.froilansfarm.PersonsTest;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
-import com.zipcodewilmington.froilansfarm.Persons.Pilot;
+import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PilotTest {
-
+public class FarmerTest {
     @Test
     public void makeNoiseTest1() {
         // Arrange
-        String expected = "Everyone has oceans to fly, if they have the heart to do it. Is it reckless? Maybe. But what do dreams know of boundaries?";
-        Pilot testPilot = new Pilot();
+        String expected = "E-I-E-I-O";
+        Farmer testFarmer = new Farmer();
         // Act
-        String returned = testPilot.makeNoise();
+        String returned = testFarmer.makeNoise();
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -24,9 +23,9 @@ public class PilotTest {
     public void makeNoiseTest2() {
         // Arrange
         String expected = "I'm on a boat";
-        Pilot testPilot = new Pilot();
+        Farmer testFarmer = new Farmer();
         // Act
-        String returned = testPilot.makeNoise();
+        String returned = testFarmer.makeNoise();
         // Assert
         Assert.assertNotEquals(expected, returned);
     }
@@ -34,11 +33,11 @@ public class PilotTest {
     @Test
     public void eatTestEgg() {
         // Arrange
-        String expected = "Yum, this food is tasty";
-        Pilot testPilot = new Pilot();
+        String expected = "This food is downright edible!";
+        Farmer testFarmer = new Farmer();
         Egg testEgg = new Egg();
         // Act
-        String returned = testPilot.eat(testEgg);
+        String returned = testFarmer.eat(testEgg);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -46,11 +45,11 @@ public class PilotTest {
     @Test
     public void eatTestApple() {
         // Arrange
-        String expected = "Yum, this food is tasty";
-        Pilot testPilot = new Pilot();
+        String expected = "This food is downright edible!";
+        Farmer testFarmer = new Farmer();
         Apple testApple = new Apple();
         // Act
-        String returned = testPilot.eat(testApple);
+        String returned = testFarmer.eat(testApple);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -58,12 +57,16 @@ public class PilotTest {
     @Test
     public void eatTestPumpkin() {
         // Arrange
-        String expected = "Yum, this food is tasty";
-        Pilot testPilot = new Pilot();
+        String expected = "This food is downright edible!";
+        Farmer testFarmer = new Farmer();
         Pumpkin testPumpkin = new Pumpkin();
         // Act
-        String returned = testPilot.eat(testPumpkin);
+        String returned = testFarmer.eat(testPumpkin);
         // Assert
         Assert.assertEquals(expected, returned);
+    }
+
+    @Test
+    public void mountTest1() {
     }
 }
