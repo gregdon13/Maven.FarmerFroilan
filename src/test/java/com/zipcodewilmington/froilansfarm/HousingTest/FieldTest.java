@@ -20,4 +20,20 @@ public class FieldTest {
         //Then
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void addRow() {
+        //Given
+        Field field = new Field();
+        int expected = 3;
+
+        //When
+        field.tillLand(1, row);
+        field.tillLand(2, row);
+        field.tillLand(3, row);
+        int actual = field.fieldSize();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }
