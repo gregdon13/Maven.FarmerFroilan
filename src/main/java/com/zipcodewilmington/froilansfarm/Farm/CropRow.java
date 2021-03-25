@@ -7,37 +7,36 @@ import com.zipcodewilmington.froilansfarm.Produce;
 import java.util.ArrayList;
 
 
-public class CropRow {
-    public ArrayList<Crop<EdiblePlant>> row = new ArrayList<Crop<EdiblePlant>>();
+public class CropRow<E extends Crop> {
+    public ArrayList<E> row;
 
-    public CropRow() {}
+    public CropRow() {
+        row = new ArrayList<E>();
+    }
 
-    public CropRow(int numOfCrop, Crop<EdiblePlant> crop) {
+    public CropRow(int numOfCrop, E crop) {
+        row = new ArrayList<E>();
         for (int i = 0; i < numOfCrop; i++) {
             plantCrops(crop);
         }
     }
 
-    public void plantCrops(Crop<EdiblePlant> crop) {
+    public void plantCrops(E crop) {
         row.add(crop);
     }
 
-    public int harvestCrop(Crop<EdiblePlant> crop) {
-        //Will return crop.Yield() which will be a random range
-        return 0;
+    public int harvestCrop(E crop) {
+        int numOfCrops = crop.howMuch();
+        row.remove(crop);
+        return numOfCrops;
     }
 
-//    public int harvestRow() {
-//        int numOfVegYielded = 0;
-//        for (Crop<EdiblePlant> crop : this.row) {
-//            //Calls yield of the plant which returns a random number
-//            //Add that to total of VegYielded for testing
-//            row.remove(crop);
-//        }
-//        return numOfVegYielded;
-//    }
 
     public int cropsPerRow() {
         return row.size();
+    }
+
+    public Crop cropType (int num) {
+        return row.get(num);
     }
 }
