@@ -29,7 +29,7 @@ public class ChickenTest {
         // Act
         String returned = testChicky.eat(testEgg);
         // Assert
-        Assert.assertEquals(expected, returned);
+        Assert.assertNotEquals(expected, returned);
     }
 
     @Test
