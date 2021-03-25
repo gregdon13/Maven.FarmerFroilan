@@ -33,9 +33,9 @@ public class Farmer implements Rider, Botanist, Person {
         return "E-I-E-I-O";
     }
 
-    public String mount(Rideable obj) {
-        System.out.println(this.name + " gets on the " + obj + ".");
-        return this.name + " gets on the " + obj + ".";
+    public String mount(Rideable rideableObj) {
+        System.out.println(this.name + " gets on the " + rideableObj + ".");
+        return this.name + " gets on the " + rideableObj + ".";
     }
 
     public String dismount(Rideable obj) {
