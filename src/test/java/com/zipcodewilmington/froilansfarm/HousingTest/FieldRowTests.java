@@ -1,7 +1,6 @@
 package com.zipcodewilmington.froilansfarm.HousingTest;
 
 import com.zipcodewilmington.froilansfarm.Crops.BeanStalk;
-import com.zipcodewilmington.froilansfarm.EdiblePackage.SoyBean;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import org.junit.Assert;

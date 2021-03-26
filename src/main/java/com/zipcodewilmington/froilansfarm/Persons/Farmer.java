@@ -2,12 +2,19 @@ package com.zipcodewilmington.froilansfarm.Persons;
 
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Moonshine;
+import com.zipcodewilmington.froilansfarm.Farm.CropRow;
+import com.zipcodewilmington.froilansfarm.Rideable;
+
+
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 import java.util.ArrayList;
 
 public class Farmer implements Rider, Botanist, Person {
+
+    Moonshine shine = new Moonshine();
 
     public String name;
 
@@ -51,6 +58,16 @@ public class Farmer implements Rider, Botanist, Person {
             cropRow.plantCrops(crop);
         }
         return cropRow;
+    }
+
+
+    public boolean drankShine() {
+        return true;
+    }
+
+    public boolean isDrunk(boolean drank){
+        shine.removeGrowler(1);
+        return true;
     }
 
 }

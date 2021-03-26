@@ -6,6 +6,8 @@ import com.zipcodewilmington.froilansfarm.NoiseMaker;
 
 public interface Person extends LivingThing, Eater, NoiseMaker{
 
+    boolean drankShine();
+
 
     }
 
