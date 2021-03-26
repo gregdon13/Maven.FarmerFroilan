@@ -1,27 +1,27 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
-import com.zipcodewilmington.froilansfarm.Crops.Crop;
-import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
-
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Field {
-    Map<Integer, CropRow> fieldMap = new LinkedHashMap<Integer, CropRow>();
     CropRow cropRow = new CropRow();
-    Crop<EdiblePlant> crop = new Crop<EdiblePlant>();
+    public Map<Integer, CropRow> fieldMap = new LinkedHashMap<Integer, CropRow>();
+
 
     public Field() {}
 
     public Field(int numOfRows, CropRow row) {
-        for (int i = 0; i < numOfRows; i++) {
+        for (int i = 1; i <= numOfRows; i++) {
             tillLand(i, row);
         }
     }
 
     public void tillLand(int rowNum, CropRow row) {
-        fieldMap.put(rowNum, row);
+        if (!fieldMap.containsKey(rowNum)) {
+            fieldMap.put(rowNum, row);
+        } else {
+            System.out.println("You already have crops there!");
+        }
     }
 
     public int fieldSize() {
@@ -31,8 +31,7 @@ public class Field {
     public int harvestRow(int rowNum) {
         int numOfVeg = 0;
         for (int i = 0; i < fieldMap.get(rowNum).cropsPerRow(); i++) {
-            //Will call harvestCrop which calls yield
-            //Add to numOfVeg
+            numOfVeg += cropRow.harvestCrop(fieldMap.get(rowNum).cropType(i));
         }
         return numOfVeg;
     }
