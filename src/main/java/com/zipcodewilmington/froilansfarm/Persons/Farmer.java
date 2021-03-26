@@ -1,7 +1,12 @@
 package com.zipcodewilmington.froilansfarm.Persons;
 
+import com.zipcodewilmington.froilansfarm.Animals.Animal;
+import com.zipcodewilmington.froilansfarm.Animals.Chicken;
+import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.ChickenFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.HorseFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Moonshine;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Rideable;
@@ -30,7 +35,7 @@ public class Farmer implements Rider, Botanist, Person {
         return name;
     }
 
-    public String eat(Edible obj) {
+    public String eat(Edible obj, int numOfFood) {
         System.out.println("This food is downright edible!");
         return "This food is downright edible!";
     }
@@ -61,5 +66,12 @@ public class Farmer implements Rider, Botanist, Person {
     public boolean isDrunk(boolean drank){
         shine.removeGrowler(1);
         return true;
+    }
+
+    public void feedHorse(Horse horse, HorseFood food) {
+        horse.eat(food);
+    }
+    public void feedChicken(Chicken chicken, ChickenFood food) {
+        chicken.eat(food);
     }
 }
