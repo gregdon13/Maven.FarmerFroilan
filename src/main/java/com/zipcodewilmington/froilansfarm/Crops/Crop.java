@@ -3,16 +3,32 @@ package com.zipcodewilmington.froilansfarm.Crops;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Produce;
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Random;
 
 public class Crop<E extends EdiblePlant> implements Produce {
-    public void addProduce(Produce produce) {
+
+    private LinkedHashMap<EdiblePlant, Integer> basket;
+    private boolean isFertilized;
+
+    public Crop() {
+        LinkedHashMap<EdiblePlant, Integer> basket = new LinkedHashMap<EdiblePlant, Integer>();
     }
-    public void yield(boolean fertilized){
+
+    public void getFertilized(boolean fertilization){
+        isFertilized = fertilization;
+    }
+
+    public boolean setFertilized(){
+        return isFertilized;
+    }
+    public boolean yield(boolean fertilized){
         if(fertilized){
-            //gonna do some stuff like add to produce or food
-            //times howMush method
+            return true;
         }
+        return false;
     }
     public int howMuch(){
         Random randomAmount = new Random();
