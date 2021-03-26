@@ -1,6 +1,9 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface Produce {
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 
+public interface Produce<E extends Edible> {
+
+    E yieldProd();
 
 }

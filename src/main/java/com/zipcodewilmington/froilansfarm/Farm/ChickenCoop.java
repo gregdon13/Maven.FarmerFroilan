@@ -28,4 +28,8 @@ public class ChickenCoop extends Housing<Chicken>{
     public int size() {
         return coop.size();
     }
+
+    public ArrayList<Chicken> getCoop() {
+        return this.coop;
+    }
 }
