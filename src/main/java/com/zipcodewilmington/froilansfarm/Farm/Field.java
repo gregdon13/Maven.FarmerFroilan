@@ -17,7 +17,11 @@ public class Field {
     }
 
     public void tillLand(int rowNum, CropRow row) {
-        fieldMap.put(rowNum, row);
+        if (!fieldMap.containsKey(rowNum)) {
+            fieldMap.put(rowNum, row);
+        } else {
+            System.out.println("You already have crops there!");
+        }
     }
 
     public int fieldSize() {
