@@ -26,7 +26,7 @@ public class Tractor<E extends Produce> extends FarmVehicle{
 //    }
 
     public boolean getReadyToHarvest(){
-        if(crop.setFertilized()){
+        if(crop.isFertilized){
             return true;
         }
         return false;

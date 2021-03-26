@@ -10,6 +10,7 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.HorseFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Moonshine;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
+import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 
@@ -19,10 +20,10 @@ import com.zipcodewilmington.froilansfarm.Rideable;
 import java.util.LinkedHashMap;
 
 public class Farmer implements Rider, Botanist, Person {
+    ProduceStand produceStand = ProduceStand.getInstance();
     LinkedHashMap<Integer, CropRow> fieldMap = Field.getInstance().fieldMap;
-
     Moonshine shine = new Moonshine();
-
+    Chicken chicken = new Chicken();
     public String name;
 
     public Farmer() {}
@@ -69,6 +70,7 @@ public class Farmer implements Rider, Botanist, Person {
 
     public boolean isDrunk(boolean drank){
         shine.removeGrowler(1);
+        System.out.println("You're not on mute!");
         return true;
     }
 
@@ -81,5 +83,10 @@ public class Farmer implements Rider, Botanist, Person {
 
     public String workFarmStand() {
         return "Fresh Produce 4 Sale";
+    }
+
+    public void getEggs() {
+        int eggs = chicken.numOfEggs();
+        produceStand.addToStand(chicken.yieldProd(), chicken.numOfEggs());
     }
 }

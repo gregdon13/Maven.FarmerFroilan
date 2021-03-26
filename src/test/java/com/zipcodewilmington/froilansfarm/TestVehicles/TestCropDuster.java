@@ -1,5 +1,8 @@
 package com.zipcodewilmington.froilansfarm.TestVehicles;
 
+import com.zipcodewilmington.froilansfarm.Crops.CornStalk;
+import com.zipcodewilmington.froilansfarm.Farm.CropRow;
+import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Vehicles.Aircraft;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.Vehicles.Vehicle;
@@ -34,5 +37,22 @@ public class TestCropDuster {
 
         //Assertion
         Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void fertilizedCrops() {
+        //Given
+        CropDuster duster = new CropDuster();
+        CornStalk cornStalk = new CornStalk();
+        Field field = Field.getInstance();
+        CropRow cropRow = new CropRow(1, cornStalk);
+        field.fieldMap.put(1, cropRow);
+
+        //When
+        duster.fertilizeField();
+        boolean actual = cornStalk.getFertilized();
+
+        //Then
+        Assert.assertTrue(actual);
     }
 }
