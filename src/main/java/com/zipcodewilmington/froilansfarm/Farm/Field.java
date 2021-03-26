@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class Field {
     CropRow cropRow = new CropRow();
-    public LinkedHashMap<Integer, CropRow> fieldMap = new LinkedHashMap<Integer, CropRow>();
+    public LinkedHashMap<Integer, CropRow> fieldMap;
 
 
     public Field() {
-        //fieldMap = new LinkedHashMap<Integer, CropRow>();
+        fieldMap = new LinkedHashMap<Integer, CropRow>();
     }
 
     public Field(int numOfRows, CropRow row) {
-        //fieldMap = new LinkedHashMap<Integer, CropRow>();
+        fieldMap = new LinkedHashMap<Integer, CropRow>();
         for (int i = 1; i <= numOfRows; i++) {
             tillLand(i, row);
         }

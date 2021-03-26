@@ -20,6 +20,10 @@ public class Stable extends Housing<Horse>{
         stable.remove(horse);
     }
 
+    public ArrayList<Horse> getStable() {
+        return this.stable;
+    }
+
     @Override
     public int size() {
         return stable.size();

@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.Vehicles;
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
+import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Produce;
@@ -12,10 +13,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Tractor<E extends Produce> extends FarmVehicle{
+    Field field;
     ProduceStand produceStand;
     Crop crop = new Crop();
     private boolean readyToHarvest = false;
-    Field field;
+
 
     public String makeNoise() {
         return "Clack-Clunk";
