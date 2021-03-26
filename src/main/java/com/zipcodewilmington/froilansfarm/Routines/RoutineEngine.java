@@ -6,16 +6,14 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.ChickenFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.HorseFood;
 
-public class RoutineEngine implements DailyRoutine{
-    public boolean mount (Horse horse) { return false;}
-    public boolean dismount (Horse horse) {return false;}
-    public boolean feedHorse(Horse horse, HorseFood food) {return false;}
-    public boolean feedChickens(Chicken chicken, ChickenFood chickFood) {
-        chicken.eat(chickFood);
-        return true;}
-
-
-
+public class RoutineEngine{
+//
+//    public void dailyRoutine() {
+//        boolean mount (Horse horse);
+//        boolean dismount (Horse horse);
+//        boolean feedHorse(Horse horse, HorseFood food);
+//        boolean feedChickens(Chicken chicken, ChickenFood chickFood);
+//    }
 
     public void Monday () {}
     public void Tuesday () {}
