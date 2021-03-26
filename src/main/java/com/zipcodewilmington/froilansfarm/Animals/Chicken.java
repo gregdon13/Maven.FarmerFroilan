@@ -7,15 +7,15 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.Produce;
 
 public class Chicken extends Animal implements Produce {
-
+    private Egg egg = new Egg();
 
     public String makeNoise() {
         System.out.println("Bok Bok!");
         return "Bok Bok!";
     }
 
-    public void addProduce(Produce produce) {
-
+    public Egg yieldProd() {
+        return egg;
     }
 
 //    @Override

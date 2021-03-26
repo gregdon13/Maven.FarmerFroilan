@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Crops;
 
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Produce;
 
@@ -33,5 +34,9 @@ public class Crop<E extends EdiblePlant> implements Produce {
     public int howMuch(){
         Random randomAmount = new Random();
         return randomAmount.nextInt(10) + 1;
+    }
+
+    public E yieldProd() {
+        return null;
     }
 }
