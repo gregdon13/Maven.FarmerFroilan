@@ -1,9 +1,11 @@
 package com.zipcodewilmington.froilansfarm.PersonsTest;
 
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
+import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -210,7 +212,29 @@ public class FarmerTest {
     }
 
     @Test
-    public void plant() {
+    public void plantTest1() {
+        // Arrange
+        Crop appleTree1 = new AppleTrees();
+        CropRow testCropRow = new CropRow();
+        Farmer testFarmer = new Farmer();
+        // Act
+        testFarmer.plant(appleTree1, testCropRow, 3);
+        int numOfCrops = testCropRow.cropsPerRow();
+        // Assert
+        Assert.assertEquals(3, numOfCrops);
+    }
+
+    @Test
+    public void plantTest2() {
+        // Arrange
+        Crop appleTree1 = new AppleTrees();
+        CropRow testCropRow = new CropRow();
+        Farmer testFarmer = new Farmer();
+        // Act
+        testFarmer.plant(appleTree1, testCropRow, 3);
+        int numOfCrops = testCropRow.cropsPerRow();
+        // Assert
+        Assert.assertNotEquals(0, numOfCrops);
     }
 
 }

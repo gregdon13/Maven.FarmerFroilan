@@ -27,7 +27,7 @@ public class TestTractor {
         Tractor tractor = new Tractor();;
 
         //Action
-        String expected = "NnNnNn";
+        String expected = "Clack-Clunk";
         String actual = tractor.makeNoise();
 
         //Assertion

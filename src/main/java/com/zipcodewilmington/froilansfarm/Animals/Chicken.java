@@ -1,11 +1,12 @@
 package com.zipcodewilmington.froilansfarm.Animals;
 
+import com.zipcodewilmington.froilansfarm.Eater;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.ChickenFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.Produce;
 
-public class Chicken extends Animal implements Produce {
+public class Chicken extends Animal implements Produce, Eater {
 
 
     public String makeNoise() {
@@ -16,13 +17,6 @@ public class Chicken extends Animal implements Produce {
     public void addProduce(Produce produce) {
 
     }
-
-//    @Override
-    public String eat(ChickenFood chickyFood) {
-        System.out.println("Peck Peck");
-        return "Peck Peck";
-    }
-
 
 
     public String eat(Edible obj) {
