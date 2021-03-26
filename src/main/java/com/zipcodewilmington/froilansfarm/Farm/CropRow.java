@@ -1,8 +1,6 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
-import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
-import com.zipcodewilmington.froilansfarm.Produce;
 
 import java.util.ArrayList;
 

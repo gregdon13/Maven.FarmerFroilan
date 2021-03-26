@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm.HousingTest;
 
 import com.zipcodewilmington.froilansfarm.Crops.BeanStalk;
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.SoyBean;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import org.junit.Assert;
 import org.junit.Test;
@@ -56,6 +57,14 @@ public class CropRowTest {
     @Test
     public void cropType() {
         //Given
-        CropRow row = new CropRow();
+        CropRow row = new CropRow(3, bean);
+
+        Crop expected = bean;
+
+        //When
+        Crop actual = row.cropType(1);
+
+        //Then
+        Assert.assertEquals(expected, actual);
     }
 }
