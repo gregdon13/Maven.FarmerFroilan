@@ -1,9 +1,13 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
+import com.zipcodewilmington.froilansfarm.Crops.Crop;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Field {
+    private static Field field_instance = null;
+
     CropRow cropRow = new CropRow();
     public LinkedHashMap<Integer, CropRow> fieldMap;
 
@@ -11,6 +15,12 @@ public class Field {
         fieldMap = new LinkedHashMap<Integer, CropRow>();
     }
 
+    public static Field getInstance() {
+        if (field_instance == null) {
+            field_instance = new Field();
+        }
+            return field_instance;
+    }
 
     public Field(int numOfRows, CropRow row) {
         fieldMap = new LinkedHashMap<Integer, CropRow>();
@@ -28,15 +38,15 @@ public class Field {
     }
 
     public void tillLand(int rowNum, CropRow row) {
-        if (!fieldMap.containsKey(rowNum)) {
-            fieldMap.put(rowNum, row);
+        if (!Field.getInstance().getFieldMap().containsKey(rowNum)) {
+            Field.getInstance().getFieldMap().put(rowNum, row);
         } else {
             System.out.println("You already have crops there!");
         }
     }
 
     public int fieldSize() {
-        return fieldMap.size();
+        return Field.getInstance().fieldSize();
     }
 
     public int harvestRow(int rowNum) {
@@ -48,10 +58,17 @@ public class Field {
     }
 
     public CropRow getCropRow(Integer rowNum) {
-        return fieldMap.get(rowNum);
+        return Field.getInstance().fieldMap.get(rowNum);
     }
 
     public LinkedHashMap<Integer, CropRow> getFieldMap() {
         return this.fieldMap;
+    }
+
+    public void plantCrops(int key, CropRow row, Crop crop, int numOfCrop) {
+        if (Field.getInstance().getFieldMap().containsKey(key)) {
+            Field.getInstance().fieldMap.get(key).add(crop, numOfCrop);
+        }
+        Field.getInstance().fieldMap.put(key, row);
     }
 }

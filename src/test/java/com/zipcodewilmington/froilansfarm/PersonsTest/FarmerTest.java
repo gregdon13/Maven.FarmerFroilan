@@ -1,9 +1,12 @@
 package com.zipcodewilmington.froilansfarm.PersonsTest;
 
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Crops.AppleTrees;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
+import com.zipcodewilmington.froilansfarm.Farm.CropRow;
+import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -131,7 +134,7 @@ public class FarmerTest {
         Farmer testFarmer = new Farmer();
         Egg testEgg = new Egg();
         // Act
-        String returned = testFarmer.eat(testEgg);
+        String returned = testFarmer.eat(testEgg, 2);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -143,7 +146,7 @@ public class FarmerTest {
         Farmer testFarmer = new Farmer();
         Apple testApple = new Apple();
         // Act
-        String returned = testFarmer.eat(testApple);
+        String returned = testFarmer.eat(testApple, 2);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -155,7 +158,7 @@ public class FarmerTest {
         Farmer testFarmer = new Farmer();
         Pumpkin testPumpkin = new Pumpkin();
         // Act
-        String returned = testFarmer.eat(testPumpkin);
+        String returned = testFarmer.eat(testPumpkin, 2);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -212,6 +215,18 @@ public class FarmerTest {
 
     @Test
     public void plant() {
+        Field field = new Field();
+        CropRow row = new CropRow();
+        Farmer farmer = new Farmer();
+        AppleTrees appleTrees = new AppleTrees();
+        field.tillLand(1, row);
+        farmer.plant(1, appleTrees, field.getCropRow(1), 5);
+        int expected = 5;
+        System.out.println(Field.getInstance().fieldMap);
+
+        int actual = field.getCropRow(1).cropsPerRow();
+
+        Assert.assertEquals(expected, actual);
     }
 
 }

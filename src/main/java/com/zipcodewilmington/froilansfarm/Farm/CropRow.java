@@ -37,4 +37,10 @@ public class CropRow<E extends Crop> {
     public Crop cropType (int num) {
         return row.get(num);
     }
+
+    public void add (E crop, int numOfCrops) {
+        for (int i = 0; i < numOfCrops; i++) {
+            row.add(crop);
+        }
+    }
 }

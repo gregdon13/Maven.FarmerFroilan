@@ -16,8 +16,10 @@ import com.zipcodewilmington.froilansfarm.Rideable;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
+import java.util.LinkedHashMap;
+
 public class Farmer implements Rider, Botanist, Person {
-    Field field;
+    LinkedHashMap<Integer, CropRow> fieldMap = Field.getInstance().fieldMap;
 
     Moonshine shine = new Moonshine();
 
@@ -57,11 +59,8 @@ public class Farmer implements Rider, Botanist, Person {
         return this.name + " gets on the " + obj + ".";
     }
 
-    public CropRow plant(Crop crop, CropRow cropRow, int numOfCrop) {
-        for (int i = 0; i < numOfCrop; i++) {
-            cropRow.plantCrops(crop);
-        }
-        return cropRow;
+    public void plant(int key, Crop crop, CropRow cropRow, int numOfCrop) {
+        Field.getInstance().plantCrops(key, cropRow, crop, numOfCrop);
     }
 
     public boolean drankShine() {
