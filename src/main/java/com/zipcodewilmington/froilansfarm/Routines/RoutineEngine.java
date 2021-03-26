@@ -6,6 +6,8 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import com.zipcodewilmington.froilansfarm.Persons.Pilot;
+import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
+import com.zipcodewilmington.froilansfarm.Vehicles.Tractor;
 
 public class RoutineEngine{
     Farmer froiland = new Farmer();
@@ -17,6 +19,9 @@ public class RoutineEngine{
     Apple apple = new Apple();
     Pumpkin pumpkin = new Pumpkin();
     SoyBean soyBean = new SoyBean();
+    CropDuster cropDuster = new CropDuster();
+    Tractor tractor = new Tractor();
+    Moonshine moonshine = new Moonshine();
 
 
     public void dailyRoutine() {
@@ -64,18 +69,27 @@ public class RoutineEngine{
 
     public void Monday () {
         dailyRoutine();
+        froilanda.mount(cropDuster);
+        //fertilize field
+        froilanda.dismount(cropDuster);
     }
     public void Tuesday () {
         dailyRoutine();
+        froiland.mount(tractor);
+        //Harvests each row
+        froiland.dismount(tractor);
     }
     public void Wednesday () {
         dailyRoutine();
+        moonshine.distill(4);
     }
     public void Thursday () {
         dailyRoutine();
     }
     public void Friday () {
         dailyRoutine();
+        froiland.workFarmStand();
+        froiland.isDrunk(froilanda.drankShine());
     }
     public void Saturday () {
         dailyRoutine();

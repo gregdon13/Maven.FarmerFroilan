@@ -18,7 +18,7 @@ public class Chicken extends Animal implements Produce {
         return egg;
     }
 
-//    @Override
+
     public String eat(ChickenFood chickyFood) {
         System.out.println("Peck Peck");
         return "Peck Peck";
@@ -26,8 +26,9 @@ public class Chicken extends Animal implements Produce {
 
 
 
-    public String eat(Edible obj) {
+    public String eat(Edible obj, int numOfFood) {
         System.out.println("Peck Peck");
         return "Peck Peck";
     }
+
 }

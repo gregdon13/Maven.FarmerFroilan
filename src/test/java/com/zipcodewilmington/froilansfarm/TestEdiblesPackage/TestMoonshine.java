@@ -11,8 +11,8 @@ public class TestMoonshine {
         Moonshine moonshine = new Moonshine();
 
         //Action
-        moonshine.distill();
-        int expected = 1;
+        moonshine.distill(3);
+        int expected = 3;
         int actual = moonshine.getNumberOfGrowlers();
 
         //Assert
@@ -22,12 +22,11 @@ public class TestMoonshine {
     public void testRemoveGrowler(){
         //Arrange
         Moonshine moonshine = new Moonshine();
-        moonshine.distill();
-        moonshine.distill();
+        moonshine.distill(3);
 
         //Action
         moonshine.removeGrowler(1);
-        int expected = 1;
+        int expected = 2;
         int actual = moonshine.getNumberOfGrowlers();
 
         //Assert

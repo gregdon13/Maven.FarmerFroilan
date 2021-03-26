@@ -6,8 +6,8 @@ public class Moonshine {
 
     public int numberOfGrowlers = 0;
 
-    public void distill(){
-        numberOfGrowlers++;
+    public void distill(int numOfGrowl){
+        numberOfGrowlers+= numOfGrowl;
     }
 
     public void removeGrowler(int growler){
