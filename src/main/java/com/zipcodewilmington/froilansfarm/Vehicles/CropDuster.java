@@ -10,7 +10,7 @@ public class CropDuster extends Aircraft {
         return "NnNnNn";
     }
 
-    public void fertilizeRow (CropRow row){
+    public void fertilizeRow (/*CropRow row*/){
 //        for (Crop crop : CropRow) {
 //            crop.yield(true);
 //        }
