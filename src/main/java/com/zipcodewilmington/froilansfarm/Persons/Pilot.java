@@ -8,7 +8,7 @@ import com.zipcodewilmington.froilansfarm.Rideable;
 
 public class Pilot implements Rider, Person {
     Moonshine shine = new Moonshine();
-    public String eat(Edible obj) {
+    public String eat(Edible obj, int numOfFood) {
         System.out.println("Yum, this food is tasty");
         return "Yum, this food is tasty";
     }
