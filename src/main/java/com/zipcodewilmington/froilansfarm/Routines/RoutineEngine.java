@@ -7,13 +7,13 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.HorseFood;
 
 public class RoutineEngine{
-
-    public void dailyRoutine() {
-        boolean mount (Horse horse);
-        boolean dismount (Horse horse);
-        boolean feedHorse(Horse horse, HorseFood food);
-        boolean feedChickens(Chicken chicken, ChickenFood chickFood);
-    }
+//
+//    public void dailyRoutine() {
+//        boolean mount (Horse horse);
+//        boolean dismount (Horse horse);
+//        boolean feedHorse(Horse horse, HorseFood food);
+//        boolean feedChickens(Chicken chicken, ChickenFood chickFood);
+//    }
 
     public void Monday () {}
     public void Tuesday () {}
