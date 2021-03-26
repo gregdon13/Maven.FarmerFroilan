@@ -11,20 +11,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Tractor<E extends Produce> extends FarmVehicle{
-    Field field;
+    Field field = Field.getInstance();
     ProduceStand produceStand;
     Crop crop = new Crop();
     private boolean readyToHarvest = false;
-    private LinkedHashMap<Integer, CropRow> fieldMap = null;
 
 
     public String makeNoise() {
         return "Clack-Clunk";
     }
 
-    public void setFieldMap(LinkedHashMap<Integer, CropRow> fieldMap){
-        this.fieldMap = fieldMap;
-    }
+//    public void setFieldMap(LinkedHashMap<Integer, CropRow> fieldMap){
+//        this.fieldMap = fieldMap;
+//    }
 
     public boolean getReadyToHarvest(){
         if(crop.setFertilized()){
@@ -34,14 +33,11 @@ public class Tractor<E extends Produce> extends FarmVehicle{
     }
 
     public void harvestRow(int rowNum){
-        if(this.fieldMap != null) {
-            CropRow cropRow = fieldMap.get(rowNum);
-            Integer rowKey = getRowKey(fieldMap, cropRow);
-            EdiblePlant ePlant = crop.yieldProd();
-            field.setFieldMap(fieldMap);
-            Integer numOfEPlant = field.harvestRow(rowKey);
-            produceStand.addToStand(ePlant, numOfEPlant);
-        }
+        CropRow cropRow = field.fieldMap.get(rowNum);
+        Integer rowKey = getRowKey(field.fieldMap, cropRow);
+        EdiblePlant ePlant = crop.yieldProd();
+        Integer numOfEPlant = field.harvestRow(rowKey);
+        produceStand.addToStand(ePlant, numOfEPlant);
     }
 
 

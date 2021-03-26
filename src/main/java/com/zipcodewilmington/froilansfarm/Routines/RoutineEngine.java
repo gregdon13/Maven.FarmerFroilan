@@ -2,8 +2,10 @@ package com.zipcodewilmington.froilansfarm.Routines;
 
 import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
+import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
+import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import com.zipcodewilmington.froilansfarm.Persons.Pilot;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
@@ -22,6 +24,12 @@ public class RoutineEngine{
     CropDuster cropDuster = new CropDuster();
     Tractor tractor = new Tractor();
     Moonshine moonshine = new Moonshine();
+    CornStalk cornStalk = new CornStalk();
+    BeanStalk beanStalk = new BeanStalk();
+    AppleTrees appleTrees = new AppleTrees();
+    PumpkinVines pumpkinVines = new PumpkinVines();
+    TomatoPlant tomatoPlant = new TomatoPlant();
+    Field field = new Field();
 
 
     public void dailyRoutine() {
@@ -96,5 +104,6 @@ public class RoutineEngine{
     }
     public void Sunday () {
         dailyRoutine();
+        froiland.plant(1, cornStalk, field.getCropRow(1), 5);
     }
 }

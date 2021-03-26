@@ -5,6 +5,7 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
+import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import com.zipcodewilmington.froilansfarm.Vehicles.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,12 +42,15 @@ public class TestTractor {
     @Test
     public void testHarvestRow() {
         //Given
+        Farmer farmer = new Farmer();
         Tractor tractor = new Tractor();
         ProduceStand produceStand = new ProduceStand();
         Apple apple = new Apple();
         AppleTrees appleTrees = new AppleTrees();
         CropRow row = new CropRow(1, appleTrees);
-        Field field = new Field(1, row);
+        Field field = Field.getInstance();
+        field.fieldMap.put(1, row);
+        farmer.plant(1, appleTrees, row, 1);
 
 
         //When

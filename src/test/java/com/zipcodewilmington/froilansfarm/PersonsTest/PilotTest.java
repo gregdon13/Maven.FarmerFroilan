@@ -38,7 +38,7 @@ public class PilotTest {
         Pilot testPilot = new Pilot();
         Egg testEgg = new Egg();
         // Act
-        String returned = testPilot.eat(testEgg);
+        String returned = testPilot.eat(testEgg, 2);
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -50,7 +50,7 @@ public class PilotTest {
         Pilot testPilot = new Pilot();
         Apple testApple = new Apple();
         // Act
-        String returned = testPilot.eat(testApple);
+        String returned = testPilot.eat(testApple,2 );
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -62,7 +62,7 @@ public class PilotTest {
         Pilot testPilot = new Pilot();
         Pumpkin testPumpkin = new Pumpkin();
         // Act
-        String returned = testPilot.eat(testPumpkin);
+        String returned = testPilot.eat(testPumpkin, 2);
         // Assert
         Assert.assertEquals(expected, returned);
     }
