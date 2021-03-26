@@ -11,9 +11,9 @@ public class CropDuster extends Aircraft{
     }
 
     public void fertilizeRow(CropRow row){
-        for (Crop crop: row) {
-            crop.yield(true);
-        }
+//        for (Crop crop: row) {
+//            crop.yield(true);
+//        }
     }
 
 
