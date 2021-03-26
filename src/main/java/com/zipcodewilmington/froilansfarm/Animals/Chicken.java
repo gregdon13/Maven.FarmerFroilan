@@ -3,6 +3,7 @@ package com.zipcodewilmington.froilansfarm.Animals;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.ChickenFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EarCorn;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.Produce;
 
 public class Chicken extends Animal implements Produce {
