@@ -9,6 +9,7 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.HorseFood;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Moonshine;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
+import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 
@@ -16,6 +17,7 @@ import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 public class Farmer implements Rider, Botanist, Person {
+    Field field;
 
     Moonshine shine = new Moonshine();
 
@@ -55,8 +57,11 @@ public class Farmer implements Rider, Botanist, Person {
         return this.name + " gets on the " + obj + ".";
     }
 
-    public void plant(Crop crop, CropRow cropRow) {
-
+    public CropRow plant(Crop crop, CropRow cropRow, int numOfCrop) {
+        for (int i = 0; i < numOfCrop; i++) {
+            cropRow.plantCrops(crop);
+        }
+        return cropRow;
     }
 
     public boolean drankShine() {
@@ -73,5 +78,9 @@ public class Farmer implements Rider, Botanist, Person {
     }
     public void feedChicken(Chicken chicken, ChickenFood food) {
         chicken.eat(food);
+    }
+
+    public String workFarmStand() {
+        return "Fresh Produce 4 Sale";
     }
 }
