@@ -50,15 +50,38 @@ public class FieldRowTests {
 
         //When
         int actual = field.harvestRow(1);
-        System.out.println(actual);
 
         //Then
         Assert.assertTrue(actual < 50 && actual > 5);
     }
 
     @Test
+    public void harvestRowTwo() {
+        //Given
+        Field field = new Field();
+        field.tillLand(1, emptyRow);
+        field.fieldMap.get(1).plantCrops(bean);
+        field.fieldMap.get(1).plantCrops(bean);
+        field.fieldMap.get(1).plantCrops(bean);
+
+        //When
+        int actual = field.harvestRow(1);
+
+        //Then
+        Assert.assertTrue(actual > 2 && actual < 34);
+    }
+
+    @Test
     public void tillLand() {
         //Given
+        Field field = new Field();
+        field.tillLand(1, emptyRow);
+        field.tillLand(2, emptyRow);
 
+        //When
+        int actual = field.fieldSize();
+
+        //Then
+        Assert.assertTrue(actual == 2);
     }
 }
