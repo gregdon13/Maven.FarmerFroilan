@@ -6,6 +6,8 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.Produce;
 
+import java.util.Random;
+
 public class Chicken extends Animal implements Produce {
     private Egg egg = new Egg();
 
@@ -29,6 +31,11 @@ public class Chicken extends Animal implements Produce {
     public String eat(Edible obj, int numOfFood) {
         System.out.println("Peck Peck");
         return "Peck Peck";
+    }
+
+    public int numOfEggs() {
+        Random randomAmount = new Random();
+        return randomAmount.nextInt(5) + 1;
     }
 
 }

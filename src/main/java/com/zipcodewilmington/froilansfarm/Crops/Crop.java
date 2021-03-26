@@ -12,19 +12,20 @@ import java.util.Random;
 public class Crop<E extends EdiblePlant> implements Produce {
 
     private LinkedHashMap<EdiblePlant, Integer> basket;
-    private boolean isFertilized;
+    public boolean isFertilized;
 
     public Crop() {
         LinkedHashMap<EdiblePlant, Integer> basket = new LinkedHashMap<EdiblePlant, Integer>();
     }
 
-    public void getFertilized(boolean fertilization){
-        isFertilized = fertilization;
+    public boolean getFertilized(){
+        return this.isFertilized;
     }
 
-    public boolean setFertilized(){
-        return isFertilized;
+    public void setFertilized(boolean fertilized){
+        isFertilized = fertilized;
     }
+
     public boolean yield(boolean isFertilized){
         if(isFertilized){
             return true;

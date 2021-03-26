@@ -4,6 +4,7 @@ import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
+import com.zipcodewilmington.froilansfarm.Farm.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
@@ -29,7 +30,7 @@ public class RoutineEngine{
     AppleTrees appleTrees = new AppleTrees();
     PumpkinVines pumpkinVines = new PumpkinVines();
     TomatoPlant tomatoPlant = new TomatoPlant();
-    Field field = new Field();
+    Field field = Field.getInstance();
 
 
     public void dailyRoutine() {
@@ -78,7 +79,8 @@ public class RoutineEngine{
     public void Monday () {
         dailyRoutine();
         froilanda.mount(cropDuster);
-        //fertilize field
+        cropDuster.fly();
+        cropDuster.fertilizeField();
         froilanda.dismount(cropDuster);
     }
     public void Tuesday () {
@@ -93,17 +95,46 @@ public class RoutineEngine{
     }
     public void Thursday () {
         dailyRoutine();
+        for (Chicken chicken : farm.coopOne.getCoop()) {
+            chicken.numOfEggs();
+        }
+        for (Chicken chicken : farm.coopTwo.getCoop()) {
+            chicken.numOfEggs();
+        }
+        for (Chicken chicken : farm.coopThree.getCoop()) {
+            chicken.numOfEggs();
+        }
+        for (Chicken chicken : farm.coopFour.getCoop()) {
+            chicken.numOfEggs();
+        }
     }
     public void Friday () {
         dailyRoutine();
         froiland.workFarmStand();
-        froiland.isDrunk(froilanda.drankShine());
+        froiland.isDrunk(froiland.drankShine());
+        froilanda.isDrunk(froilanda.drankShine());
     }
     public void Saturday () {
+        froiland.isDrunk(froiland.drankShine());
+        froilanda.isDrunk(froilanda.drankShine());
         dailyRoutine();
     }
     public void Sunday () {
         dailyRoutine();
         froiland.plant(1, cornStalk, field.getCropRow(1), 5);
+        froiland.plant(2, tomatoPlant, field.getCropRow(2), 5);
+        froiland.plant(3, beanStalk, field.getCropRow(3), 5);
+        froiland.plant(4, appleTrees, field.getCropRow(4), 5);
+        froiland.plant(5, pumpkinVines, field.getCropRow(5), 5);
+    }
+
+    public void run() {
+        Sunday();
+        Monday();
+        Tuesday();
+        Wednesday();
+        Thursday();
+        Friday();
+        Saturday();
     }
 }

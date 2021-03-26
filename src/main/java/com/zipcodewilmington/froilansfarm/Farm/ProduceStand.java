@@ -1,10 +1,20 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 
 import java.util.LinkedHashMap;
 
-public class ProduceStand<E extends EdiblePlant> {
+public class ProduceStand<E extends Edible> {
+    private static ProduceStand produce_stand = null;
+
+    public static ProduceStand getInstance() {
+        if (produce_stand == null) {
+            produce_stand = new ProduceStand();
+        }
+        return produce_stand;
+    }
+
     LinkedHashMap<E, Integer> produceStand;
 
     public ProduceStand() {
