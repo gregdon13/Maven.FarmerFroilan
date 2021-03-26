@@ -24,8 +24,8 @@ public class Crop<E extends EdiblePlant> implements Produce {
     public boolean setFertilized(){
         return isFertilized;
     }
-    public boolean yield(boolean fertilized){
-        if(fertilized){
+    public boolean yield(boolean isFertilized){
+        if(isFertilized){
             return true;
         }
         return false;
