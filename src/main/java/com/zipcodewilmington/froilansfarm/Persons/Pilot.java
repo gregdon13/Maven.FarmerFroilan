@@ -1,9 +1,13 @@
 package com.zipcodewilmington.froilansfarm.Persons;
 
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
+
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Moonshine;
+
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 public class Pilot implements Rider, Person {
+    Moonshine shine = new Moonshine();
     public String eat(Edible obj) {
         System.out.println("Yum, this food is tasty");
         return "Yum, this food is tasty";
@@ -20,5 +24,14 @@ public class Pilot implements Rider, Person {
 
     public String dismount(Rideable obj) {
         return null;
+    }
+
+    public boolean drankShine() {
+        return true;
+    }
+
+    public boolean isDrunk(boolean drank){
+        shine.removeGrowler(1);
+        return true;
     }
 }
