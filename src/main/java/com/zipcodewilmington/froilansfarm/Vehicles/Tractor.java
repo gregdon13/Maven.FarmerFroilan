@@ -3,11 +3,9 @@ package com.zipcodewilmington.froilansfarm.Vehicles;
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
-import com.zipcodewilmington.froilansfarm.Farm.Farm;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Produce;
-import javafx.util.Pair;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -17,10 +15,15 @@ public class Tractor<E extends Produce> extends FarmVehicle{
     ProduceStand produceStand;
     Crop crop = new Crop();
     private boolean readyToHarvest = false;
+    private LinkedHashMap<Integer, CropRow> fieldMap = null;
 
 
     public String makeNoise() {
         return "Clack-Clunk";
+    }
+
+    public void setFieldMap(LinkedHashMap<Integer, CropRow> fieldMap){
+        this.fieldMap = fieldMap;
     }
 
     public boolean getReadyToHarvest(){
@@ -31,16 +34,19 @@ public class Tractor<E extends Produce> extends FarmVehicle{
     }
 
     public void harvestRow(int rowNum){
-        CropRow cropRow = field.getCropRow(rowNum);
-        Integer rowKey = getRowKey(field.getFieldMap(), cropRow);
-        EdiblePlant ePlant = crop.yieldProd();
-        Integer numOfEPlant = field.harvestRow(rowKey);
-        produceStand.addToStand(ePlant, numOfEPlant);
+        if(this.fieldMap != null) {
+            CropRow cropRow = fieldMap.get(rowNum);
+            Integer rowKey = getRowKey(fieldMap, cropRow);
+            EdiblePlant ePlant = crop.yieldProd();
+            field.setFieldMap(fieldMap);
+            Integer numOfEPlant = field.harvestRow(rowKey);
+            produceStand.addToStand(ePlant, numOfEPlant);
+        }
     }
 
 
     public Integer getRowKey(Map<Integer, CropRow> map, CropRow value) {
-        Integer rowKey = 0;
+        Integer rowKey = null;
         for (Map.Entry<Integer, CropRow> entry : map.entrySet()) {
             if (entry.getValue().equals(value)) {
                 rowKey = entry.getKey();
