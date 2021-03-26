@@ -7,16 +7,24 @@ public class Field {
     CropRow cropRow = new CropRow();
     public LinkedHashMap<Integer, CropRow> fieldMap;
 
-
     public Field() {
         fieldMap = new LinkedHashMap<Integer, CropRow>();
     }
+
 
     public Field(int numOfRows, CropRow row) {
         fieldMap = new LinkedHashMap<Integer, CropRow>();
         for (int i = 1; i <= numOfRows; i++) {
             tillLand(i, row);
         }
+    }
+
+    public LinkedHashMap<Integer, CropRow> getHashMap(){
+        return fieldMap;
+    }
+
+    public void setFieldMap(LinkedHashMap map){
+        this.fieldMap = map;
     }
 
     public void tillLand(int rowNum, CropRow row) {
