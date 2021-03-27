@@ -7,6 +7,7 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
+import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -229,4 +230,18 @@ public class FarmerTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void getEggsTest() {
+        //Given
+        ProduceStand produceStand = ProduceStand.getInstance();
+        Farmer farmer = new Farmer();
+        int expected = 1;
+
+        //When
+        farmer.getEggs();
+        int actual = produceStand.produceStand.size();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }

@@ -24,9 +24,9 @@ public class Field {
 
     public Field(int numOfRows, CropRow row) {
         fieldMap = new LinkedHashMap<Integer, CropRow>();
-        for (int i = 1; i <= numOfRows; i++) {
-            tillLand(i, row);
-        }
+//        for (int i = 1; i <= numOfRows; i++) {
+//            tillLand(i, row);
+//        }
     }
 
     public LinkedHashMap<Integer, CropRow> getHashMap(){
@@ -66,9 +66,7 @@ public class Field {
     }
 
     public void plantCrops(int key, CropRow row, Crop crop, int numOfCrop) {
-        if (Field.getInstance().getFieldMap().containsKey(key)) {
-            Field.getInstance().fieldMap.get(key).add(crop, numOfCrop);
-        }
         Field.getInstance().fieldMap.put(key, row);
+        Field.getInstance().fieldMap.get(key).row.add(numOfCrop);
     }
 }

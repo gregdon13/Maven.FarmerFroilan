@@ -50,8 +50,18 @@ public class Tractor<E extends Produce> extends FarmVehicle{
                 count += s.howMuch();
             }
             produceStand.addToStand(current, count);
+//        for (int i = 0; i < field.fieldMap.size(); i++) {
+//            CropRow<Crop> row = field.getCropRow(i);
+//            int count = 0;
+//            Edible veg = null;
+//            for (int j = 0; j < row.cropsPerRow(); j++) {
+//                count += row.row.get(j).howMuch();
+//                veg = row.row.get(j).yieldProd();
+//            }
+//            produceStand.addToStand(veg, count);
         }
     }
+
 
 
     public Integer getRowKey(Map<Integer, CropRow> map, CropRow value) {
