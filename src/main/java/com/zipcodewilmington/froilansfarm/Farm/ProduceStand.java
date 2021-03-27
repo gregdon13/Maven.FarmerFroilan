@@ -1,12 +1,18 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
-import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
-import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
 
 import java.util.LinkedHashMap;
 
 public class ProduceStand<E extends Edible> {
+
     private static ProduceStand produce_stand = null;
+
+    public LinkedHashMap<E, Integer> produceStand;
+
+    private ProduceStand() {
+        this.produceStand = new LinkedHashMap();
+    }
 
     public static ProduceStand getInstance() {
         if (produce_stand == null) {
@@ -15,19 +21,13 @@ public class ProduceStand<E extends Edible> {
         return produce_stand;
     }
 
-    LinkedHashMap<E, Integer> produceStand;
-
-    public ProduceStand() {
-        this.produceStand = new LinkedHashMap<E, Integer>();
-    }
-
     public void addToStand(E produce, int quantity){
         if (produceStand.containsKey(produce)) {
-            int inventory = produceStand.get(produce);
+            Integer inventory = produceStand.get(produce);
             inventory += quantity;
             produceStand.put(produce, inventory);
         } else {
-            produceStand.put(produce, quantity);
+           produceStand.put(produce, quantity);
         }
     }
 
@@ -37,7 +37,8 @@ public class ProduceStand<E extends Edible> {
         produceStand.put(produce, currentStock);
     }
 
-    public int produceInventory(EdiblePlant crop) {
-       return produceStand.get(crop);
+    public int produceInventory(E produce) {
+       return produceStand.get(produce);
     }
+
 }

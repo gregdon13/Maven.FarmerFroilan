@@ -13,7 +13,7 @@ public class ProduceStandTest {
     @Test
     public void addProduce() {
         //Given
-        ProduceStand produceStand = new ProduceStand();
+        ProduceStand produceStand = ProduceStand.getInstance();
         produceStand.addToStand(bean, 7);
         int expected = 7;
 
@@ -27,7 +27,7 @@ public class ProduceStandTest {
     @Test
     public void sellProduce() {
         //Given
-        ProduceStand produceStand = new ProduceStand();
+        ProduceStand produceStand = ProduceStand.getInstance();
         produceStand.addToStand(apple, 12);
         produceStand.sellProduce(apple, 5);
         int expected = 7;
