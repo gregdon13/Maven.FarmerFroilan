@@ -1,6 +1,5 @@
 package com.zipcodewilmington.froilansfarm.Persons;
 
-import com.zipcodewilmington.froilansfarm.Animals.Animal;
 import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
@@ -14,9 +13,6 @@ import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Rideable;
 
 
-import com.zipcodewilmington.froilansfarm.Farm.CropRow;
-import com.zipcodewilmington.froilansfarm.Rideable;
-
 import java.util.LinkedHashMap;
 
 public class Farmer implements Rider, Botanist, Person {
@@ -25,6 +21,7 @@ public class Farmer implements Rider, Botanist, Person {
     Moonshine shine = new Moonshine();
     Chicken chicken = new Chicken();
     public String name;
+    public boolean mounted = false;
 
     public Farmer() {}
 
@@ -52,11 +49,13 @@ public class Farmer implements Rider, Botanist, Person {
 
     public String mount(Rideable rideableObj) {
         System.out.println(this.name + " gets on the " + rideableObj + ".");
+        mounted = true;
         return this.name + " gets on the " + rideableObj + ".";
     }
 
     public String dismount(Rideable obj) {
         System.out.println(this.name + " gets off the " + obj + ".");
+        mounted = false;
         return this.name + " gets on the " + obj + ".";
     }
 
@@ -81,8 +80,8 @@ public class Farmer implements Rider, Botanist, Person {
         chicken.eat(food);
     }
 
-    public String workFarmStand() {
-        return "Fresh Produce 4 Sale";
+    public void workFarmStand() {
+        System.out.println("Fresh Produce 4 Sale");
     }
 
     public void getEggs() {

@@ -4,9 +4,7 @@ import com.zipcodewilmington.froilansfarm.Animals.Chicken;
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
-import com.zipcodewilmington.froilansfarm.Farm.ChickenCoop;
-import com.zipcodewilmington.froilansfarm.Farm.Farm;
-import com.zipcodewilmington.froilansfarm.Farm.Field;
+import com.zipcodewilmington.froilansfarm.Farm.*;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
 import com.zipcodewilmington.froilansfarm.Persons.Pilot;
 import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
@@ -30,7 +28,9 @@ public class RoutineEngine{
     AppleTrees appleTrees = new AppleTrees();
     PumpkinVines pumpkinVines = new PumpkinVines();
     TomatoPlant tomatoPlant = new TomatoPlant();
-    Field field = Field.getInstance();
+    Field oldField = new Field();
+    Field field = oldField.getInstance();
+    ProduceStand produceStand = ProduceStand.getInstance();
 
 
     public void dailyRoutine() {
@@ -86,7 +86,8 @@ public class RoutineEngine{
     public void Tuesday () {
         dailyRoutine();
         froiland.mount(tractor);
-        //Harvests each row
+        tractor.harvestField();
+        System.out.println(produceStand.produceStand);
         froiland.dismount(tractor);
     }
     public void Wednesday () {
@@ -96,20 +97,21 @@ public class RoutineEngine{
     public void Thursday () {
         dailyRoutine();
         for (Chicken chicken : farm.coopOne.getCoop()) {
-            chicken.numOfEggs();
+            froiland.getEggs();
         }
         for (Chicken chicken : farm.coopTwo.getCoop()) {
-            chicken.numOfEggs();
+            froiland.getEggs();
         }
         for (Chicken chicken : farm.coopThree.getCoop()) {
-            chicken.numOfEggs();
+            froiland.getEggs();
         }
         for (Chicken chicken : farm.coopFour.getCoop()) {
-            chicken.numOfEggs();
+            froiland.getEggs();
         }
     }
     public void Friday () {
         dailyRoutine();
+        System.out.println(produceStand.produceStand);
         froiland.workFarmStand();
         froiland.isDrunk(froiland.drankShine());
         froilanda.isDrunk(froilanda.drankShine());
@@ -121,11 +123,21 @@ public class RoutineEngine{
     }
     public void Sunday () {
         dailyRoutine();
-        froiland.plant(1, cornStalk, field.getCropRow(1), 5);
-        froiland.plant(2, tomatoPlant, field.getCropRow(2), 5);
-        froiland.plant(3, beanStalk, field.getCropRow(3), 5);
-        froiland.plant(4, appleTrees, field.getCropRow(4), 5);
-        froiland.plant(5, pumpkinVines, field.getCropRow(5), 5);
+        CropRow<Crop> cropRow = new CropRow();
+        field.getInstance().tillLand(1, cropRow);
+        cropRow.add(appleTrees, 5);
+        CropRow<Crop> cropRowTwo = new CropRow();
+        field.getInstance().tillLand(2, cropRowTwo);
+        cropRowTwo.add(cornStalk, 5);
+        CropRow<Crop> cropRowThree = new CropRow();
+        field.getInstance().tillLand(3, cropRowThree);
+        cropRowThree.add(beanStalk, 5);
+        CropRow<Crop> cropRowFour = new CropRow();
+        field.getInstance().tillLand(4, cropRowFour);
+        cropRowFour.add(tomatoPlant, 5);
+        CropRow<Crop> cropRowFive = new CropRow();
+        field.getInstance().tillLand(5, cropRowFive);
+        cropRowFive.add(pumpkinVines, 5);
     }
 
     public void run() {
