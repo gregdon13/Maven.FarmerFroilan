@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.Vehicles;
 
 import com.zipcodewilmington.froilansfarm.Crops.Crop;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
@@ -12,7 +13,7 @@ import java.util.Map;
 
 public class Tractor<E extends Produce> extends FarmVehicle{
     Field field = Field.getInstance();
-    ProduceStand produceStand;
+    ProduceStand produceStand = ProduceStand.getInstance();
     Crop crop = new Crop();
     private boolean readyToHarvest = false;
 
@@ -32,12 +33,24 @@ public class Tractor<E extends Produce> extends FarmVehicle{
         return false;
     }
 
-    public void harvestRow(int rowNum){
-        CropRow cropRow = field.fieldMap.get(rowNum);
-        Integer rowKey = getRowKey(field.fieldMap, cropRow);
-        EdiblePlant ePlant = crop.yieldProd();
-        Integer numOfEPlant = field.harvestRow(rowKey);
-        produceStand.addToStand(ePlant, numOfEPlant);
+//    public void harvestRow(int rowNum){
+//        CropRow cropRow = field.fieldMap.get(rowNum);
+//        Integer rowKey = getRowKey(field.fieldMap, cropRow);
+//        EdiblePlant ePlant = crop.yieldProd();
+//        Integer numOfEPlant = field.harvestRow(rowKey);
+//        produceStand.addToStand(ePlant, numOfEPlant);
+//    }
+
+    public void harvestField() {
+        for (CropRow<Crop> row : field.fieldMap.values()) {
+            EdiblePlant current = null;
+            int count = 0;
+            for (Crop s : row.row) {
+                current = s.yieldProd();
+                count += s.howMuch();
+            }
+            produceStand.addToStand(current, count);
+        }
     }
 
 

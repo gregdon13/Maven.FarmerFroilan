@@ -2,19 +2,23 @@ package com.zipcodewilmington.froilansfarm.TestVehicles;
 
 import com.zipcodewilmington.froilansfarm.Crops.AppleTrees;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
+import com.zipcodewilmington.froilansfarm.EdiblePackage.Edible;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
 import com.zipcodewilmington.froilansfarm.Persons.Farmer;
+import com.zipcodewilmington.froilansfarm.Produce;
 import com.zipcodewilmington.froilansfarm.Vehicles.*;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.LinkedHashMap;
 
 public class TestTractor {
     @Test
     public void testInheritanceFarmVehicle(){
         //Arrange
-        Tractor tractor = new Tractor();
+        Tractor<com.zipcodewilmington.froilansfarm.Produce> tractor = new Tractor<com.zipcodewilmington.froilansfarm.Produce>();
 
         //Assertion
         Assert.assertTrue(tractor instanceof FarmVehicle);
@@ -22,7 +26,7 @@ public class TestTractor {
     @Test
     public void testImplementsVehicle(){
         //Arrange
-        Tractor tractor = new Tractor();
+        Tractor<com.zipcodewilmington.froilansfarm.Produce> tractor = new Tractor<com.zipcodewilmington.froilansfarm.Produce>();
 
         //Assertion
         Assert.assertTrue(tractor instanceof Vehicle);
@@ -30,7 +34,7 @@ public class TestTractor {
     @Test
     public void testMakeNoise(){
         //Arrange
-        Tractor tractor = new Tractor();;
+        Tractor<com.zipcodewilmington.froilansfarm.Produce> tractor = new Tractor<com.zipcodewilmington.froilansfarm.Produce>();;
 
         //Action
         String expected = "NnNnNn";
@@ -42,22 +46,21 @@ public class TestTractor {
     @Test
     public void testHarvestRow() {
         //Given
-        Farmer farmer = new Farmer();
-        Tractor tractor = new Tractor();
-        ProduceStand produceStand = new ProduceStand();
-        Apple apple = new Apple();
-        AppleTrees appleTrees = new AppleTrees();
-        CropRow row = new CropRow(1, appleTrees);
         Field field = Field.getInstance();
-        field.fieldMap.put(1, row);
-        farmer.plant(1, appleTrees, row, 1);
-
+        CropRow row = new CropRow();
+        AppleTrees appleTrees = new AppleTrees();
+        field.tillLand(1, row);
+        row.add(appleTrees, 1);
+        Tractor<Produce> tractor = new Tractor();
+        int expected = 1;
 
         //When
-        tractor.harvestRow(tractor.getRowKey(field.fieldMap, row));
-        int numOfApples = produceStand.produceInventory(apple);
+        ProduceStand produceStand = ProduceStand.getInstance();
+        tractor.harvestField();
+        int output = produceStand.produceStand.size();
+
 
         //Then
-        Assert.assertTrue(numOfApples < 11 && numOfApples > 0);
+        Assert.assertEquals(expected, output);
     }
 }
