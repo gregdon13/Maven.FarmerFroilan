@@ -25,12 +25,9 @@ public class Tractor<E extends Produce> extends FarmVehicle{
         this.name = "tractor";
     }
 
-
-
     public String getName() {
         return name;
     }
-
 
     public String makeNoise() {
         return "Clack-Clunk";
@@ -103,8 +100,12 @@ public class Tractor<E extends Produce> extends FarmVehicle{
 
     public boolean isMounted(Rider obj) {
         String mounted = obj.mount(this);
-        if (farmer.mounted) { return true;
+        if (farmer.mounted) {
+            return true;
         }
         return false;
     }
+
+
+
 }

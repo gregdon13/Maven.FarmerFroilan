@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm.PersonsTest;
 
 import com.zipcodewilmington.froilansfarm.Animals.Horse;
 import com.zipcodewilmington.froilansfarm.Crops.AppleTrees;
+import com.zipcodewilmington.froilansfarm.Crops.*;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
@@ -167,13 +168,13 @@ public class FarmerTest {
     @Test
     public void mountTest1() {
         // Arrange
-        String expected = "";//this.name + " gets on the " + obj + ".";
         Farmer testFarmer = new Farmer("George");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets on the " + testHorse + ".";
         // Act
         String returned = testFarmer.mount(testHorse);
         // Assert
-        Assert.assertEquals(expected, returned);
+        Assert.assertNotEquals(expected, returned);
     }
 
     @Test
@@ -194,9 +195,9 @@ public class FarmerTest {
 
         Farmer testFarmer = new Farmer("Geralt");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets off the " + testHorse + ".";
         // Act
         String returned = testFarmer.dismount(testHorse);
-        String expected = "";//this.name + " gets on the " + obj + ".";
         // Assert
         Assert.assertEquals(expected, returned);
     }
@@ -204,30 +205,55 @@ public class FarmerTest {
     @Test
     public void dismountTest2() {
         // Arrange
-
-        Farmer testFarmer = new Farmer("Geralt");
+        Farmer testFarmer = new Farmer("George");
         Horse testHorse = new Horse();
+        String expected = "Geralt" + " gets on the " + testHorse + ".";
         // Act
         String returned = testFarmer.dismount(testHorse);
-        String expected = "";//this.name + " gets on the " + obj + ".";
         // Assert
-        Assert.assertEquals(expected, returned);
+        Assert.assertNotEquals(expected, returned);
     }
 
     @Test
-    public void plant() {
+    public void plantTest1() {
+        // Arrange
+        Crop appleTree1 = new AppleTrees();
+        CropRow testCropRow = new CropRow();
+        Farmer testFarmer = new Farmer();
+        // Act
+        testFarmer.plant(appleTree1, testCropRow, 3);
+        int numOfCrops = testCropRow.cropsPerRow();
+        // Assert
+        Assert.assertEquals(3, numOfCrops);
+    }
+
+    @Test
+    public void plantTest() {
         Field field = new Field();
         CropRow row = new CropRow();
         Farmer farmer = new Farmer();
         AppleTrees appleTrees = new AppleTrees();
         field.tillLand(1, row);
-        farmer.plant(1, appleTrees, field.getCropRow(1), 5);
+        farmer.plant(appleTrees, field.getCropRow(1), 5);
         int expected = 5;
         System.out.println(Field.getInstance().fieldMap);
 
         int actual = field.getCropRow(1).cropsPerRow();
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void plantTest2() {
+        // Arrange
+        Crop appleTree1 = new AppleTrees();
+        CropRow testCropRow = new CropRow();
+        Farmer testFarmer = new Farmer();
+        // Act
+        testFarmer.plant(appleTree1, testCropRow, 3);
+        int numOfCrops = testCropRow.cropsPerRow();
+        // Assert
+        Assert.assertNotEquals(0, numOfCrops);
     }
 
     @Test

@@ -7,7 +7,9 @@ public abstract class Aircraft implements Vehicle {
         return "I am serious... and don't call me Shirley";
     }
 
-    public boolean isMounted(Rider obj) {
+    public boolean isMounted(Rider riderObj) {
+        String mounted = riderObj.mount(this);
+        if (mounted.equals(riderObj + " gets on the " + this + ".")) return true;
         return false;
     }
 

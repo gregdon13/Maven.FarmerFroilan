@@ -49,7 +49,7 @@ public class TestTractor {
         Tractor<com.zipcodewilmington.froilansfarm.Produce> tractor = new Tractor<com.zipcodewilmington.froilansfarm.Produce>();;
 
         //Action
-        String expected = "NnNnNn";
+        String expected = "Clack-Clunk";
         String actual = tractor.makeNoise();
 
         //Assertion
