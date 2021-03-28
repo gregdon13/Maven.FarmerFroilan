@@ -8,4 +8,8 @@ public class Tomato implements EdiblePlant{
     public boolean hasBeenHarvested() {
         return false;
     }
+
+    public String getKeyStr() {
+        return "Tomato";
+    }
 }

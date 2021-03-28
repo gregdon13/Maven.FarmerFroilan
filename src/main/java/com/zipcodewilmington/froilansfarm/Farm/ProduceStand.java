@@ -1,7 +1,10 @@
 package com.zipcodewilmington.froilansfarm.Farm;
 
+import com.zipcodewilmington.froilansfarm.Crops.Crop;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.*;
 
+import java.security.Key;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 
 public class ProduceStand<E extends Edible> {
@@ -39,6 +42,13 @@ public class ProduceStand<E extends Edible> {
 
     public int produceInventory(E produce) {
        return produceStand.get(produce);
+    }
+
+    public void printMap() {
+        for (E key : produceStand.keySet()){
+            String amount = produceStand.get(key).toString();
+            System.out.println(key.getKeyStr() + " " + amount);
+        }
     }
 
 }
