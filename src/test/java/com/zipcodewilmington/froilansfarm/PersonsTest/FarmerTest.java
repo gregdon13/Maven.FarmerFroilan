@@ -15,7 +15,7 @@ import org.junit.Test;
 public class FarmerTest {
 
     @Test
-    public void nulleryContructor1() {
+    public void testNulleryContructor1() {
         // Arrange
         Farmer testFarmer = new Farmer();
         String expectedName = "Sally";
@@ -27,7 +27,7 @@ public class FarmerTest {
     }
 
     @Test
-    public void nulleryContructor2() {
+    public void testNulleryContructor2() {
         // Arrange
         Farmer testFarmer = new Farmer();
         String expectedName = "Sally";
@@ -39,7 +39,7 @@ public class FarmerTest {
     }
 
     @Test
-    public void ConstructorTestName1() {
+    public void constructorTestName1() {
         // Arrange
         String expectedName = "Darrell";
         Farmer testFarmer = new Farmer(expectedName);
@@ -50,7 +50,7 @@ public class FarmerTest {
     }
 
     @Test
-    public void ConstructorTestName2() {
+    public void constructorTestName2() {
         // Arrange
         String expectedName = "Darrell";
         Farmer testFarmer = new Farmer(expectedName);

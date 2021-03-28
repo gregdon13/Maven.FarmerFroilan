@@ -4,4 +4,5 @@ import com.zipcodewilmington.froilansfarm.Persons.Rider;
 
 public interface Rideable {
     boolean isMounted(Rider obj);
+    String getName();
 }

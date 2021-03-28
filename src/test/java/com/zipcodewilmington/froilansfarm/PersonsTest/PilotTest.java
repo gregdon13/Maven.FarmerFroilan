@@ -4,10 +4,53 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.Apple;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Egg;
 import com.zipcodewilmington.froilansfarm.EdiblePackage.Pumpkin;
 import com.zipcodewilmington.froilansfarm.Persons.Pilot;
+import com.zipcodewilmington.froilansfarm.Vehicles.CropDuster;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class PilotTest {
+
+    @Test
+    public void testNulleryContructor1() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        String expectedName = "Froilanda";
+        // Act
+        String returnedName = testPilot.getName();
+        // Assert
+        Assert.assertEquals(expectedName, returnedName);
+    }
+
+    @Test
+    public void testNulleryContructor2() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        String expectedName = "Froilanda";
+        // Act
+        String returnedName = testPilot.getName();
+        // Assert
+        Assert.assertNotEquals(null, returnedName);
+    }
+
+    @Test
+    public void getNameTest1() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        // Act
+        String returnedName = testPilot.getName();
+        // Assert
+        Assert.assertEquals("Froilanda", returnedName);
+    }
+
+    @Test
+    public void getNameTest2() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        // Act
+        String returnedName = testPilot.getName();
+        // Assert
+        Assert.assertNotEquals(null, returnedName);
+    }
 
     @Test
     public void makeNoiseTest1() {
@@ -65,5 +108,52 @@ public class PilotTest {
         String returned = testPilot.eat(testPumpkin, 2);
         // Assert
         Assert.assertEquals(expected, returned);
+    }
+
+    @Test
+    public void mountTest1() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        CropDuster testCropDuster = new CropDuster();
+        String expected = "Froilanda gets on the " + testCropDuster.getName() + ".";
+        // Act
+        String returned = testPilot.mount(testCropDuster);
+        // Assert
+        Assert.assertEquals(expected, returned);
+    }
+
+    @Test
+    public void mountTest2() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        CropDuster testCropDuster = new CropDuster();
+        String expected = "Froilanda gets on the " + testCropDuster.getName() + ".";
+        // Act
+        String returned = testPilot.mount(testCropDuster);
+        // Assert
+        Assert.assertNotEquals(null, returned);
+    }
+
+    @Test
+    public void dismountTest1() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        CropDuster testCropDuster = new CropDuster();
+        // Act
+        String expected = "Froilanda gets off the " + testCropDuster.getName() + ".";
+        String returned = testPilot.dismount(testCropDuster);
+        // Assert
+        Assert.assertEquals(expected, returned);
+    }
+
+    @Test
+    public void dismountTest2() {
+        // Arrange
+        Pilot testPilot = new Pilot();
+        CropDuster testCropDuster = new CropDuster();
+        // Act
+        String returned = testPilot.dismount(testCropDuster);
+        // Assert
+        Assert.assertNotEquals(null, returned);
     }
 }

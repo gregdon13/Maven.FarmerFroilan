@@ -10,4 +10,8 @@ public abstract class FarmVehicle implements Vehicle {
     public boolean isMounted(Rider obj) {
         return false;
     }
+
+    public String getName() {
+        return null;
+    }
 }
