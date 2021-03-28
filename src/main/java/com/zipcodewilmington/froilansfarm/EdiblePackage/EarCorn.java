@@ -8,4 +8,8 @@ public class EarCorn implements HorseFood, ChickenFood {
     public boolean hasBeenHarvested() {
         return false;
     }
+
+    public String getKeyStr() {
+        return "EarCorn";
+    }
 }

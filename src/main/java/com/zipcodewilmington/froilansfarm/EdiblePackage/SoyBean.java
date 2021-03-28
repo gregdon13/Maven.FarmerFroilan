@@ -14,4 +14,8 @@ public class SoyBean implements ChickenFood{
     public void setNumOfSoyBeans(int num) {
         numOfSoyBeans = num;
     }
+
+    public String getKeyStr() {
+        return "Soy Bean";
+    }
 }

@@ -87,7 +87,7 @@ public class RoutineEngine{
         dailyRoutine();
         froiland.mount(tractor);
         tractor.harvestField();
-        System.out.println(produceStand.produceStand);
+        produceStand.printMap();
         froiland.dismount(tractor);
     }
     public void Wednesday () {
@@ -111,7 +111,8 @@ public class RoutineEngine{
     }
     public void Friday () {
         dailyRoutine();
-        System.out.println(produceStand.produceStand);
+       // System.out.println(produceStand.produceStand);
+        produceStand.printMap();
         froiland.workFarmStand();
         froiland.isDrunk(froiland.drankShine());
         froilanda.isDrunk(froilanda.drankShine());

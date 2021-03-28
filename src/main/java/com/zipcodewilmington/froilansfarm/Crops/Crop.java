@@ -40,4 +40,5 @@ public class Crop<E extends EdiblePlant> implements Produce {
     public E yieldProd() {
         return null;
     }
+
 }
