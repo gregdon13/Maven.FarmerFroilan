@@ -10,6 +10,18 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestCropDuster {
+
+    @Test
+    public void getNameTest() {
+    // Arrange
+    CropDuster testCropDuster = new CropDuster();
+    String nameExpected = "plane";
+    // Act
+    String returnedName = testCropDuster.getName();
+    // Assert
+    Assert.assertEquals(nameExpected, returnedName);
+    }
+
     @Test
     public void testInheritanceAirCraft(){
         //Arrange

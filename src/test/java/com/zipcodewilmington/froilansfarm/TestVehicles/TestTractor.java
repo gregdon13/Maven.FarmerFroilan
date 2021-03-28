@@ -15,6 +15,18 @@ import org.junit.Test;
 import java.util.LinkedHashMap;
 
 public class TestTractor {
+
+    @Test
+    public void testGetName() {
+        // Arrange
+        Tractor testTractor = new Tractor();
+        String expectedName = "tractor";
+        // Act
+        String returnedName = testTractor.getName();
+        // Assert
+        Assert.assertEquals(expectedName, returnedName);
+    }
+
     @Test
     public void testInheritanceFarmVehicle(){
         //Arrange
@@ -37,7 +49,7 @@ public class TestTractor {
         Tractor<com.zipcodewilmington.froilansfarm.Produce> tractor = new Tractor<com.zipcodewilmington.froilansfarm.Produce>();;
 
         //Action
-        String expected = "NnNnNn";
+        String expected = "Clack-Clunk";
         String actual = tractor.makeNoise();
 
         //Assertion

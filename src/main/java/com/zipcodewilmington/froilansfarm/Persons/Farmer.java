@@ -15,6 +15,8 @@ import com.zipcodewilmington.froilansfarm.Rideable;
 
 import java.util.LinkedHashMap;
 
+import java.util.ArrayList;
+
 public class Farmer implements Rider, Botanist, Person {
     ProduceStand produceStand = ProduceStand.getInstance();
     LinkedHashMap<Integer, CropRow> fieldMap = Field.getInstance().fieldMap;
@@ -23,7 +25,9 @@ public class Farmer implements Rider, Botanist, Person {
     public String name;
     public boolean mounted = false;
 
-    public Farmer() {}
+    public Farmer() {
+        this.name = "Froiland";
+    }
 
     public Farmer(String name) {
         this.name = name;
@@ -48,20 +52,24 @@ public class Farmer implements Rider, Botanist, Person {
     }
 
     public String mount(Rideable rideableObj) {
-        System.out.println(this.name + " gets on the " + rideableObj + ".");
+        System.out.println(this.name + " gets on the " + rideableObj.getName() + ".");
         mounted = true;
-        return this.name + " gets on the " + rideableObj + ".";
+        return this.name + " gets on the " + rideableObj.getName() + ".";
     }
 
     public String dismount(Rideable obj) {
-        System.out.println(this.name + " gets off the " + obj + ".");
+        System.out.println(this.name + " gets off the " + obj.getName() + ".");
         mounted = false;
-        return this.name + " gets on the " + obj + ".";
+        return this.name + " gets on the " + obj.getName() + ".";
     }
 
-    public void plant(int key, Crop crop, CropRow cropRow, int numOfCrop) {
-        Field.getInstance().plantCrops(key, cropRow, crop, numOfCrop);
+    public CropRow plant(Crop crop, CropRow cropRow, int numOfCrop) {
+        for (int i = 0; i < numOfCrop; i++) {
+            cropRow.plantCrops(crop);
+        }
+        return cropRow;
     }
+
 
     public boolean drankShine() {
         return true;
@@ -88,4 +96,5 @@ public class Farmer implements Rider, Botanist, Person {
         int eggs = chicken.numOfEggs();
         produceStand.addToStand(chicken.yieldProd(), chicken.numOfEggs());
     }
+
 }

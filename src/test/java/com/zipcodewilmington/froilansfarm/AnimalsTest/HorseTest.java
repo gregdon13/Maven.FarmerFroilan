@@ -13,6 +13,94 @@ import org.junit.Test;
 public class HorseTest {
 
     @Test
+    public void nulleryContructor1() {
+        // Arrange
+        Horse testHorse = new Horse();
+        String expectedName = "the horse";
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertEquals(expectedName, returnedName);
+    }
+
+    @Test
+    public void nulleryContructor2() {
+        // Arrange
+        Horse testHorse = new Horse();
+        String expectedName = "the horse";
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertNotEquals(null, returnedName);
+    }
+
+    @Test
+    public void ConstructorTestName1() {
+        // Arrange
+        String expectedName = "Black Beauty";
+        Horse testHorse = new Horse(expectedName);
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertEquals(expectedName, returnedName);
+    }
+
+    @Test
+    public void ConstructorTestName2() {
+        // Arrange
+        String expectedName = "Black Beauty";
+        Horse testHorse = new Horse(expectedName);
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertNotEquals("Bobby Joe", returnedName);
+    }
+
+    @Test
+    public void setNameTest1() {
+        // Arrange
+        Horse testHorse = new Horse();
+        // Act
+        testHorse.setName("Dolly");
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertEquals("Dolly", returnedName);
+    }
+
+    @Test
+    public void setNameTest2() {
+        // Arrange
+        Horse testHorse = new Horse();
+        // Act
+        testHorse.setName("Dolly");
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertNotEquals("Bobby Joe", returnedName);
+    }
+
+    @Test
+    public void getNameTest1() {
+        // Arrange
+        String expectedName = "Seabiscuit";
+        Horse testHorse = new Horse(expectedName);
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertEquals("Seabiscuit", returnedName);
+    }
+
+    @Test
+    public void getNameTest2() {
+        // Arrange
+        String expectedName = "Seabiscuit";
+        Horse testHorse = new Horse(expectedName);
+        // Act
+        String returnedName = testHorse.getName();
+        // Assert
+        Assert.assertNotEquals(null, returnedName);
+    }
+
+    @Test
     public void makeNoiseTest1() {
         // Arrange
         String expected = "Neeeighhh!";

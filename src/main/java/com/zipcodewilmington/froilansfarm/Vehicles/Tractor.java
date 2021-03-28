@@ -6,6 +6,8 @@ import com.zipcodewilmington.froilansfarm.EdiblePackage.EdiblePlant;
 import com.zipcodewilmington.froilansfarm.Farm.CropRow;
 import com.zipcodewilmington.froilansfarm.Farm.Field;
 import com.zipcodewilmington.froilansfarm.Farm.ProduceStand;
+import com.zipcodewilmington.froilansfarm.Persons.Farmer;
+import com.zipcodewilmington.froilansfarm.Persons.Rider;
 import com.zipcodewilmington.froilansfarm.Produce;
 
 import java.util.LinkedHashMap;
@@ -16,7 +18,16 @@ public class Tractor<E extends Produce> extends FarmVehicle{
     ProduceStand produceStand = ProduceStand.getInstance();
     Crop crop = new Crop();
     private boolean readyToHarvest = false;
+    String name;
+    Farmer farmer = new Farmer();
 
+    public Tractor() {
+        this.name = "tractor";
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public String makeNoise() {
         return "Clack-Clunk";
@@ -75,6 +86,8 @@ public class Tractor<E extends Produce> extends FarmVehicle{
     }
 
 
+
+
 //    public Integer getRowKey(Map<Integer, CropRow> map, CropRow value) {
 //        int rowKey = 0;
 //        for (Map.Entry<Integer, CropRow> entry : map.entrySet()) {
@@ -84,5 +97,15 @@ public class Tractor<E extends Produce> extends FarmVehicle{
 //        }
 //        return rowKey;
 //    }
+
+    public boolean isMounted(Rider obj) {
+        String mounted = obj.mount(this);
+        if (farmer.mounted) {
+            return true;
+        }
+        return false;
+    }
+
+
 
 }
